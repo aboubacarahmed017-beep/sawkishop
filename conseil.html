@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conseils – OptiVision</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-glasses"></i></span>
+        <span class="logo-text">Opti<span class="accent">Vision</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="commander.html">Comment commander</a></li>
+        <li><a href="conseil.html" class="active">Conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="panier.html" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-badge" id="cartBadge2">0</span></a>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-bg">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+    </div>
+    <div class="page-header-content">
+      <h1>Nos <span class="gradient-text">Conseils</span></h1>
+      <p>Tout ce que vous devez savoir pour choisir la paire idéale</p>
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Conseils</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ FORME VISAGE -->
+  <section class="quiz-section section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Personnalisé</p>
+        <h2>Trouvez votre <span class="gradient-text">forme idéale</span></h2>
+        <p class="section-sub">Répondez à quelques questions pour découvrir les montures faites pour vous</p>
+      </div>
+
+      <div class="quiz-card" id="quizCard">
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="quizProgressBar" style="width:0%"></div>
+        </div>
+        <div id="quizContent">
+          <!-- Injecté par JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUIDE FORMES DE VISAGE -->
+  <section class="face-guide section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Guide</p>
+        <h2>Lunettes selon la <span class="gradient-text">forme du visage</span></h2>
+        <p class="section-sub">Chaque visage a ses montures idéales — voici notre guide complet</p>
+      </div>
+      <div class="face-grid">
+        <div class="face-card">
+          <div class="face-shape oval"><div class="face-icon">⬭</div></div>
+          <h3>Visage Ovale</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Toutes les formes vous vont</p>
+          <p>Vous avez la chance de pouvoir porter presque tous les styles. Privilégiez des montures larges pour valoriser vos proportions naturelles.</p>
+          <div class="face-tags"><span>Rectangulaire</span><span>Ronde</span><span>Aviateur</span><span>Papillon</span></div>
+        </div>
+        <div class="face-card">
+          <div class="face-shape rond"><div class="face-icon">⬤</div></div>
+          <h3>Visage Rond</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Allonger et affiner le visage</p>
+          <p>Optez pour des montures rectangulaires ou angulaires qui apportent de la structure et allongent visuellement le visage.</p>
+          <div class="face-tags"><span>Rectangulaire</span><span>Carré</span><span>Wayfarer</span></div>
+        </div>
+        <div class="face-card">
+          <div class="face-shape carre"><div class="face-icon">■</div></div>
+          <h3>Visage Carré</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Adoucir les angles forts</p>
+          <p>Choisissez des montures rondes ou ovales pour équilibrer votre mâchoire forte et adoucir les angles de votre visage.</p>
+          <div class="face-tags"><span>Ronde</span><span>Ovale</span><span>Papillon</span></div>
+        </div>
+        <div class="face-card">
+          <div class="face-shape coeur"><div class="face-icon">♥</div></div>
+          <h3>Visage Cœur</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Équilibrer le front et le menton</p>
+          <p>Votre front large mérite des montures plus légères sur le haut. Privilégiez l'aviateur ou les montures à monture fine.</p>
+          <div class="face-tags"><span>Aviateur</span><span>Demi-cerclées</span><span>Ovale</span></div>
+        </div>
+        <div class="face-card">
+          <div class="face-shape triangle"><div class="face-icon">▲</div></div>
+          <h3>Visage Triangle</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Élargir la partie haute</p>
+          <p>Choisissez des montures avec des accents décoratifs en haut pour rééquilibrer votre menton plus large.</p>
+          <div class="face-tags"><span>Cat-eye</span><span>Browline</span><span>Haut épais</span></div>
+        </div>
+        <div class="face-card">
+          <div class="face-shape long"><div class="face-icon">▬</div></div>
+          <h3>Visage Long</h3>
+          <p class="face-good"><i class="fas fa-check"></i> Raccourcir et élargir</p>
+          <p>Optez pour des montures larges et hautes qui occupent plus d'espace horizontal pour rééquilibrer votre visage.</p>
+          <div class="face-tags"><span>Large</span><span>Ronde</span><span>Papillon</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSEILS PRATIQUES -->
+  <section class="tips-section section" style="background: var(--bg-alt)">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">À savoir</p>
+        <h2>Conseils <span class="gradient-text">pratiques</span></h2>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon"><i class="fas fa-ruler-combined"></i></div>
+          <h3>Comment mesurer son visage ?</h3>
+          <p>Mesurez la largeur de votre visage au niveau des tempes, la longueur de votre visage du sommet de la tête jusqu'au menton, et la largeur de votre mâchoire. Ces mesures vous aideront à choisir la bonne taille de monture.</p>
+          <ul class="tip-list">
+            <li><i class="fas fa-check-circle"></i> Largeur des tempes : pour la taille de la monture</li>
+            <li><i class="fas fa-check-circle"></i> Longueur du visage : pour la hauteur des verres</li>
+            <li><i class="fas fa-check-circle"></i> Distance interpupillaire : pour le centrage</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon"><i class="fas fa-sun"></i></div>
+          <h3>Protection UV : ce qu'il faut savoir</h3>
+          <p>Toutes nos lunettes de soleil offrent une protection UV400 qui bloque 100% des rayons UVA et UVB. La couleur des verres n'indique pas le niveau de protection — c'est le traitement UV qui compte.</p>
+          <ul class="tip-list">
+            <li><i class="fas fa-check-circle"></i> UV400 = protection maximale</li>
+            <li><i class="fas fa-check-circle"></i> Indice de filtration de 1 à 4</li>
+            <li><i class="fas fa-check-circle"></i> Catégorie 3 recommandée en plein soleil</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon"><i class="fas fa-tools"></i></div>
+          <h3>Entretien de vos lunettes</h3>
+          <p>Pour préserver la durée de vie de vos lunettes et la qualité de vos verres, suivez ces bonnes pratiques d'entretien au quotidien.</p>
+          <ul class="tip-list">
+            <li><i class="fas fa-check-circle"></i> Utilisez un chiffon microfibre</li>
+            <li><i class="fas fa-check-circle"></i> Rangez-les dans l'étui fourni</li>
+            <li><i class="fas fa-check-circle"></i> Évitez la chaleur excessive</li>
+            <li><i class="fas fa-check-circle"></i> Nettoyez à l'eau tiède savonneuse</li>
+          </ul>
+        </div>
+        <div class="tip-card">
+          <div class="tip-icon"><i class="fas fa-palette"></i></div>
+          <h3>Choisir la couleur de sa monture</h3>
+          <p>La couleur de votre monture doit compléter votre teint et votre garde-robe. Voici quelques repères pour faire le bon choix.</p>
+          <ul class="tip-list">
+            <li><i class="fas fa-check-circle"></i> Teint chaud → nuances dorées, marron, écaille</li>
+            <li><i class="fas fa-check-circle"></i> Teint froid → noir, argent, bleu, rose</li>
+            <li><i class="fas fa-check-circle"></i> Teint neutre → toutes les couleurs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Questions fréquentes</p>
+        <h2>Vos <span class="gradient-text">questions</span></h2>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Comment passer une commande ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>C'est simple : parcourez notre catalogue dans la section Shop, ajoutez les lunettes de votre choix au panier, puis remplissez vos informations de livraison. Nous vous contacterons pour confirmer et organiser la livraison.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Quel est le délai de livraison ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Nous livrons généralement en 24 à 48h dans la ville, et 2 à 5 jours ouvrables pour les autres zones. Vous serez contacté pour convenir d'un horaire de livraison.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Puis-je retourner une commande ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Oui, vous disposez de 30 jours après réception pour retourner un article non porté et dans son emballage d'origine. Contactez-nous et nous organisons la récupération.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Puis-je venir en boutique physique ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Absolument ! Notre boutique est ouverte du lundi au samedi de 9h à 19h. Vous pouvez venir essayer directement sur place toutes nos lunettes disponibles en ligne et bien plus encore.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Vos lunettes de vue nécessitent-elles une ordonnance ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Pour les montures de vue sans verres correcteurs, aucune ordonnance n'est nécessaire. Si vous souhaitez des verres adaptés à votre correction, nous travaillons avec des opticiens partenaires — apportez votre ordonnance en boutique.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Comment obtenir une garantie ? <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Toutes nos lunettes sont garanties 2 ans contre les défauts de fabrication. Conservez votre reçu de commande pour faire valoir la garantie. Contactez-nous en cas de problème.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CONTACT -->
+  <section class="cta-contact section" style="background: var(--bg-alt)">
+    <div class="container">
+      <div class="cta-contact-box">
+        <div class="cta-contact-icon"><i class="fas fa-comments"></i></div>
+        <h2>Besoin d'un conseil personnalisé ?</h2>
+        <p>Notre équipe est disponible pour vous guider dans le choix de vos lunettes. N'hésitez pas à nous contacter !</p>
+        <a href="contact.html" class="btn-primary">Contacter notre équipe <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fas fa-glasses"></i> Opti<span class="accent">Vision</span></a>
+        <p>Votre boutique de lunettes premium.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="conseil.html">Conseils</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#">Livraison & retours</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="Votre email" required/>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 OptiVision. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg"></span></div>
+
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

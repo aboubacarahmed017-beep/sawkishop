@@ -1,0 +1,57 @@
+=====================================================
+  OPTIVISION – INSTRUCTIONS DE MISE EN SERVICE
+  Pour recevoir les commandes par email
+=====================================================
+
+ÉTAPES À SUIVRE (une seule fois, 5 minutes) :
+----------------------------------------------
+
+1. VA SUR  →  https://formspree.io
+   - Clique sur "Get Started" (c'est gratuit)
+   - Crée un compte avec ton email
+
+2. CRÉE UN FORMULAIRE POUR LES COMMANDES
+   - Clique sur "+ New Form"
+   - Nomme-le : "Commandes OptiVision"
+   - Copie l'endpoint qui ressemble à :
+     https://formspree.io/f/xxxxxabc
+
+3. CRÉE UN DEUXIÈME FORMULAIRE POUR LES CONTACTS
+   - Clique sur "+ New Form"
+   - Nomme-le : "Contact OptiVision"
+   - Copie son endpoint aussi
+
+4. OUVRE LE FICHIER  →  main.js
+   - Cherche la ligne :
+     const FORMSPREE_COMMANDE = 'https://formspree.io/f/VOTRE_ID_ICI';
+   - Remplace VOTRE_ID_ICI par le vrai endpoint du formulaire commandes
+
+   - Cherche la ligne :
+     const FORMSPREE_CONTACT = 'https://formspree.io/f/VOTRE_ID_ICI';
+   - Remplace VOTRE_ID_ICI par le vrai endpoint du formulaire contact
+
+5. SAUVEGARDE LE FICHIER main.js
+
+C'EST TOUT ! Désormais :
+------------------------
+✅ Chaque commande t'arrive par email avec :
+   - Nom et prénom du client
+   - Numéro de téléphone
+   - Adresse de livraison
+   - Liste des articles commandés
+   - Total à encaisser
+   - Mode de paiement choisi
+   - Numéro de commande unique
+
+✅ Chaque message du formulaire contact t'arrive aussi par email
+
+PLAN GRATUIT FORMSPREE :
+------------------------
+- 50 soumissions / mois gratuitement
+- Pour plus : plan payant à partir de $8/mois
+- Suffisant pour démarrer une boutique en ligne
+
+QUESTIONS ?
+-----------
+Contactez votre développeur.
+=====================================================

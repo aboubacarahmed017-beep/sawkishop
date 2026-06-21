@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panier – OptiVision</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-glasses"></i></span>
+        <span class="logo-text">Opti<span class="accent">Vision</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="panier.html" class="active">Panier <span class="cart-badge" id="cartBadge">0</span></a></li>
+        <li><a href="conseil.html">Conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="panier.html" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-badge" id="cartBadge2">0</span></a>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-bg">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+    </div>
+    <div class="page-header-content">
+      <h1>Mon <span class="gradient-text">Panier</span></h1>
+      <p>Passez commande — nous livrons directement chez vous</p>
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Panier</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANIER SECTION -->
+  <section class="cart-section section">
+    <div class="container">
+
+      <!-- ETAPES DE COMMANDE -->
+      <div class="order-steps">
+        <div class="step active" id="step1">
+          <div class="step-num">1</div>
+          <span>Panier</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step2">
+          <div class="step-num">2</div>
+          <span>Livraison</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step" id="step3">
+          <div class="step-num">3</div>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- CONTENU PANIER -->
+      <div class="cart-layout" id="cartLayout">
+        <!-- ITEMS -->
+        <div class="cart-items-section">
+          <div class="cart-items-header">
+            <h2>Articles (<span id="cartItemCount">0</span>)</h2>
+            <button class="clear-cart-btn" onclick="clearCart()"><i class="fas fa-trash"></i> Vider le panier</button>
+          </div>
+          <div id="cartItems"></div>
+        </div>
+
+        <!-- RESUME -->
+        <div class="cart-summary">
+          <h2>Résumé de commande</h2>
+
+          <div class="summary-lines">
+            <div class="summary-line"><span>Sous-total</span><span id="summarySubtotal">0 FCFA</span></div>
+            <div class="summary-line"><span>Livraison</span><span id="summaryShipping" class="text-green">Gratuite</span></div>
+            <div class="summary-line promo-line" id="promoLine" style="display:none">
+              <span>Réduction (<span id="promoCode"></span>)</span>
+              <span id="promoAmount" class="text-green"></span>
+            </div>
+            <div class="summary-divider"></div>
+            <div class="summary-line total-line"><span><strong>Total</strong></span><span id="summaryTotal"><strong>0 FCFA</strong></span></div>
+          </div>
+
+          <!-- CODE PROMO -->
+          <div class="promo-input-section">
+            <p>Code promo</p>
+            <div class="promo-input">
+              <input type="text" id="promoInput" placeholder="Entrez votre code"/>
+              <button onclick="applyPromo()">Appliquer</button>
+            </div>
+            <p class="promo-hint" id="promoHint"></p>
+          </div>
+
+          <button class="btn-primary btn-full" id="checkoutBtn" onclick="goToCheckout()">
+            Commander maintenant <i class="fas fa-arrow-right"></i>
+          </button>
+          <a href="shop.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continuer mes achats</a>
+        </div>
+      </div>
+
+      <!-- PANIER VIDE -->
+      <div class="empty-cart" id="emptyCart" style="display:none">
+        <div class="empty-cart-icon">
+          <i class="fas fa-shopping-bag"></i>
+        </div>
+        <h2>Votre panier est vide</h2>
+        <p>Ajoutez des lunettes à votre panier pour passer commande</p>
+        <a href="shop.html" class="btn-primary">Découvrir la collection <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMULAIRE DE COMMANDE (CHECKOUT) -->
+  <div class="checkout-overlay" id="checkoutOverlay">
+    <div class="checkout-modal" id="checkoutModal">
+      <button class="modal-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+      <h2><i class="fas fa-truck"></i> Informations de livraison</h2>
+      <form id="checkoutForm" onsubmit="submitOrder(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Prénom *</label>
+            <input type="text" id="firstName" placeholder="Votre prénom" required/>
+          </div>
+          <div class="form-group">
+            <label>Nom *</label>
+            <input type="text" id="lastName" placeholder="Votre nom" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Téléphone *</label>
+          <input type="tel" id="phone" placeholder="+XXX XXX XXX XXX" required/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="votre@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Adresse de livraison *</label>
+          <input type="text" id="address" placeholder="Numéro et nom de rue" required/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ville *</label>
+            <input type="text" id="city" placeholder="Votre ville" required/>
+          </div>
+          <div class="form-group">
+            <label>Quartier</label>
+            <input type="text" id="district" placeholder="Quartier / zone"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mode de paiement *</label>
+          <div class="payment-methods">
+            <label class="payment-option">
+              <input type="radio" name="payment" value="livraison" checked/>
+              <span><i class="fas fa-hand-holding-usd"></i> Paiement à la livraison</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="mobile"/>
+              <span><i class="fas fa-mobile-alt"></i> Mobile Money</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment" value="virement"/>
+              <span><i class="fas fa-university"></i> Virement bancaire</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Message / Instructions (optionnel)</label>
+          <textarea id="orderNote" rows="3" placeholder="Instructions pour la livraison..."></textarea>
+        </div>
+        <div class="order-recap" id="orderRecap"></div>
+        <button type="submit" class="btn-primary btn-full">
+          <i class="fas fa-check-circle"></i> Confirmer la commande
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONFIRMATION OVERLAY -->
+  <div class="confirmation-overlay" id="confirmationOverlay">
+    <div class="confirmation-modal">
+      <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+      <h2>Commande confirmée !</h2>
+      <p id="confirmationMsg">Merci pour votre commande. Nous vous contacterons sous peu pour organiser la livraison.</p>
+      <div class="confirmation-details" id="confirmationDetails"></div>
+      <a href="shop.html" class="btn-primary">Continuer mes achats</a>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg"></span></div>
+
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

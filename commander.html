@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comment Commander – OptiVision</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ── PAGE COMMANDER ── */
+    .steps-section { padding: 5rem 0; background: var(--white); }
+    .steps-intro { text-align: center; max-width: 600px; margin: 0 auto 4rem; }
+    .steps-intro h2 { font-family: var(--font-serif); font-size: clamp(1.8rem,3vw,2.6rem); font-weight: 400; color: var(--charcoal); margin-bottom: 1rem; }
+    .steps-intro p  { color: var(--text-2); font-size: .95rem; line-height: 1.7; }
+
+    /* Timeline verticale */
+    .timeline { max-width: 800px; margin: 0 auto; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 52px; top: 0; bottom: 0;
+      width: 2px; background: var(--border);
+    }
+    .timeline-step {
+      display: flex; gap: 2rem; margin-bottom: 3rem; position: relative;
+      animation: fadeUp .5s ease both;
+    }
+    .timeline-step:nth-child(1) { animation-delay: .1s; }
+    .timeline-step:nth-child(2) { animation-delay: .2s; }
+    .timeline-step:nth-child(3) { animation-delay: .3s; }
+    .timeline-step:nth-child(4) { animation-delay: .4s; }
+    .timeline-step:nth-child(5) { animation-delay: .5s; }
+    .timeline-step:nth-child(6) { animation-delay: .6s; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+    .step-icon-wrap {
+      flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%;
+      background: var(--bordeaux); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; box-shadow: 0 4px 16px rgba(33,150,243,.3);
+      position: relative; z-index: 1;
+    }
+    .step-icon-wrap .step-num {
+      position: absolute; top: -4px; right: -4px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--charcoal); color: var(--white);
+      font-size: .65rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--white);
+    }
+    .step-body {
+      flex: 1; background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.5rem 1.8rem;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .step-body:hover { box-shadow: var(--shadow-lg); transform: translateX(4px); }
+    .step-body h3 { font-size: 1.05rem; font-weight: 600; color: var(--charcoal); margin-bottom: .5rem; }
+    .step-body p  { font-size: .88rem; color: var(--text-2); line-height: 1.7; margin-bottom: 0; }
+    .step-body .step-tip {
+      margin-top: .8rem; padding: .6rem 1rem;
+      background: var(--bordeaux-soft); border-left: 3px solid var(--bordeaux);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-size: .82rem; color: var(--text-2);
+    }
+    .step-body .step-tip i { color: var(--bordeaux); margin-right: .4rem; }
+    .step-body .step-screenshot {
+      margin-top: 1rem; background: var(--muted); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .mock-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .5rem 1rem; border-radius: var(--radius);
+      font-size: .78rem; font-weight: 600; pointer-events: none;
+    }
+    .mock-btn.blue  { background: var(--bordeaux); color: var(--white); }
+    .mock-btn.grey  { background: var(--charcoal); color: var(--white); }
+    .mock-btn.light { background: var(--white); color: var(--charcoal); border: 1px solid var(--border); }
+    .mock-tag {
+      font-size: .72rem; font-weight: 600; padding: .2rem .6rem;
+      border-radius: 20px; background: var(--bordeaux-soft); color: var(--bordeaux);
+    }
+
+    /* FAQ rapide */
+    .quick-faq { padding: 4rem 0; background: var(--muted); border-top: 1px solid var(--border); }
+    .quick-faq-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap: 1.2rem; margin-top: 2.5rem;
+    }
+    .qfaq-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 1.4rem;
+      transition: box-shadow var(--transition);
+    }
+    .qfaq-card:hover { box-shadow: var(--shadow); }
+    .qfaq-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bordeaux-soft); color: var(--bordeaux);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; margin-bottom: .8rem;
+    }
+    .qfaq-card h4 { font-size: .9rem; font-weight: 600; margin-bottom: .4rem; color: var(--charcoal); }
+    .qfaq-card p  { font-size: .82rem; color: var(--text-2); line-height: 1.6; }
+
+    /* CTA final */
+    .cta-commander { padding: 4rem 0; text-align: center; }
+    .cta-commander h2 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem; }
+    .cta-commander p  { color: var(--text-2); margin-bottom: 2rem; font-size: .95rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    @media(max-width:640px){
+      .timeline::before { left: 28px; }
+      .step-icon-wrap { width: 40px; height: 40px; font-size: 1rem; }
+      .timeline { padding: 0 .5rem; }
+      .timeline-step { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-glasses"></i></span>
+        <span class="logo-text">Opti<span class="accent">Vision</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="commander.html" class="active">Comment commander</a></li>
+        <li><a href="conseil.html">Conseils</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="panier.html" class="cart-btn">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="cart-badge" id="cartBadge2">0</span>
+        </a>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-bg">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+    </div>
+    <div class="page-header-content">
+      <h1>Comment <span class="gradient-text">Commander</span></h1>
+      <p>Suivez ces étapes simples pour recevoir vos lunettes à domicile</p>
+      <div class="breadcrumb">
+        <a href="index.html">Accueil</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Comment commander</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEPS SECTION -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="steps-intro">
+        <h2>Commander en <span class="gradient-text">6 étapes</span></h2>
+        <p>Recevoir vos lunettes préférées n'a jamais été aussi simple. De la sélection à la livraison, on s'occupe de tout.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- ÉTAPE 1 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap">
+            <i class="fas fa-store"></i>
+            <span class="step-num">1</span>
+          </div>
+          <div class="step-body">
+            <h3>Parcourez notre catalogue</h3>
+            <p>Rendez-vous sur la page <strong>Shop</strong> pour découvrir toute notre collection de lunettes. Utilisez les filtres par catégorie (Soleil, Vue, Sport, Luxe) ou la barre de recherche pour trouver rapidement ce que vous cherchez.</p>
+            <div class="step-screenshot">
+              <span class="mock-btn light"><i class="fas fa-sun"></i> Soleil</span>
+              <span class="mock-btn light"><i class="fas fa-eye"></i> Vue</span>
+              <span class="mock-btn light"><i class="fas fa-person-running"></i> Sport</span>
+              <span class="mock-btn blue"><i class="fas fa-gem"></i> Luxe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap">
+            <i class="fas fa-glasses"></i>
+            <span class="step-num">2</span>
+          </div>
+          <div class="step-body">
+            <h3>Choisissez votre paire</h3>
+            <p>Cliquez sur <strong>"Aperçu rapide"</strong> pour voir les détails du produit : description, couleurs disponibles, prix. Sélectionnez la couleur de votre choix avant d'ajouter au panier.</p>
+            <div class="step-screenshot">
+              <span class="mock-tag">-20%</span>
+              <span class="mock-tag">Nouveau</span>
+              <span class="mock-btn light"><i class="fas fa-eye"></i> Aperçu rapide</span>
+            </div>
+            <div class="step-tip">
+              <i class="fas fa-lightbulb"></i> Pas sûr de votre choix ? Consultez notre page <strong>Conseils</strong> pour trouver la monture adaptée à votre visage.
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="step-num">3</span>
+          </div>
+          <div class="step-body">
+            <h3>Ajoutez au panier</h3>
+            <p>Cliquez sur le bouton <strong>"Ajouter au panier"</strong> (icône sac). Vous pouvez ajouter plusieurs articles. Le badge en haut à droite de la navbar affiche le nombre d'articles dans votre panier.</p>
+            <div class="step-screenshot">
+              <span class="mock-btn blue"><i class="fas fa-shopping-bag"></i> Ajouter au panier</span>
+              <span style="font-size:.82rem;color:var(--text-2);">→ Badge <strong style="color:var(--bordeaux);">3</strong> articles</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 4 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap">
+            <i class="fas fa-cart-shopping"></i>
+            <span class="step-num">4</span>
+          </div>
+          <div class="step-body">
+            <h3>Vérifiez votre panier</h3>
+            <p>Allez sur la page <strong>Panier</strong>. Vous pouvez modifier les quantités, supprimer des articles ou entrer un <strong>code promo</strong> pour obtenir une réduction. Le total est mis à jour automatiquement.</p>
+            <div class="step-screenshot">
+              <span class="mock-btn light"><i class="fas fa-minus"></i></span>
+              <span style="font-size:.9rem;font-weight:600;">2</span>
+              <span class="mock-btn light"><i class="fas fa-plus"></i></span>
+              <span style="margin:0 .5rem;font-size:.82rem;color:var(--text-3);">|</span>
+              <span style="font-size:.78rem;background:var(--muted);padding:.3rem .8rem;border-radius:4px;border:1px solid var(--border);">OPTIVISION10</span>
+              <span class="mock-btn blue">Appliquer</span>
+            </div>
+            <div class="step-tip">
+              <i class="fas fa-tag"></i> Codes promo disponibles : <strong>OPTIVISION10</strong> (-10%), <strong>BIENVENUE</strong> (-15%), <strong>VIP20</strong> (-20%)
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 5 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap">
+            <i class="fas fa-truck"></i>
+            <span class="step-num">5</span>
+          </div>
+          <div class="step-body">
+            <h3>Remplissez vos informations de livraison</h3>
+            <p>Cliquez sur <strong>"Commander maintenant"</strong>. Un formulaire s'ouvre. Renseignez vos informations : nom, téléphone, adresse, ville. Choisissez votre mode de paiement préféré.</p>
+            <div class="step-screenshot">
+              <div style="display:flex;flex-direction:column;gap:.4rem;font-size:.78rem;color:var(--text-2);text-align:left;">
+                <span><i class="fas fa-user" style="color:var(--bordeaux);width:16px;"></i> Nom · Prénom</span>
+                <span><i class="fas fa-phone" style="color:var(--bordeaux);width:16px;"></i> Numéro de téléphone</span>
+                <span><i class="fas fa-map-marker-alt" style="color:var(--bordeaux);width:16px;"></i> Adresse complète</span>
+                <span><i class="fas fa-city" style="color:var(--bordeaux);width:16px;"></i> Ville + Quartier</span>
+                <span><i class="fas fa-credit-card" style="color:var(--bordeaux);width:16px;"></i> Mode de paiement</span>
+              </div>
+            </div>
+            <div class="step-tip">
+              <i class="fas fa-mobile-alt"></i> Modes de paiement acceptés : <strong>Paiement à la livraison</strong>, Mobile Money, Virement bancaire.
+            </div>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 6 -->
+        <div class="timeline-step">
+          <div class="step-icon-wrap" style="background:var(--green);">
+            <i class="fas fa-check-circle"></i>
+            <span class="step-num">6</span>
+          </div>
+          <div class="step-body">
+            <h3>Confirmation & livraison</h3>
+            <p>Après validation, vous recevez un <strong>numéro de commande unique</strong>. Notre équipe vous contacte par téléphone dans les <strong>24h</strong> pour organiser la livraison à votre adresse.</p>
+            <div class="step-screenshot" style="background:#e8f5e9;border-color:#a5d6a7;">
+              <i class="fas fa-check-circle" style="font-size:2rem;color:#2e7d32;"></i>
+              <div style="font-size:.85rem;text-align:left;">
+                <strong style="color:#1b5e20;">Commande confirmée !</strong><br/>
+                <span style="color:#388e3c;">Numéro : #OV123456</span><br/>
+                <span style="color:var(--text-2);">Livraison sous 24–48h</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ RAPIDE -->
+  <section class="quick-faq">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Questions fréquentes</p>
+        <h2>Vous avez des <span class="gradient-text">questions ?</span></h2>
+      </div>
+      <div class="quick-faq-grid">
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-clock"></i></div>
+          <h4>Délai de livraison ?</h4>
+          <p>24 à 48h en ville. 2 à 5 jours ouvrables pour les autres zones. Vous serez contacté pour convenir d'un horaire.</p>
+        </div>
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-hand-holding-usd"></i></div>
+          <h4>Comment payer ?</h4>
+          <p>Paiement à la livraison (espèces), Mobile Money ou virement bancaire. Vous choisissez lors de la commande.</p>
+        </div>
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-undo"></i></div>
+          <h4>Peut-on retourner ?</h4>
+          <p>Oui, 30 jours pour retourner un article non porté dans son emballage d'origine. Contactez-nous pour organiser.</p>
+        </div>
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-truck"></i></div>
+          <h4>Frais de livraison ?</h4>
+          <p>La livraison est <strong>gratuite</strong> partout. Aucun frais caché, le prix affiché est le prix final.</p>
+        </div>
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>Garantie produit ?</h4>
+          <p>Toutes nos lunettes sont garanties 2 ans contre les défauts de fabrication. Conservez votre reçu de commande.</p>
+        </div>
+        <div class="qfaq-card">
+          <div class="qfaq-icon"><i class="fas fa-headset"></i></div>
+          <h4>Besoin d'aide ?</h4>
+          <p>Notre équipe est disponible par téléphone, WhatsApp ou via le formulaire de contact. Réponse rapide garantie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-commander">
+    <div class="container">
+      <h2>Prêt à passer votre <span class="gradient-text">commande ?</span></h2>
+      <p>Parcourez notre collection et trouvez la paire qui vous correspond.</p>
+      <div class="cta-btns">
+        <a href="shop.html" class="btn-primary"><i class="fas fa-glasses"></i> Voir la collection</a>
+        <a href="conseil.html" class="btn-ghost"><i class="fas fa-lightbulb"></i> Guide des formes</a>
+        <a href="contact.html" class="btn-ghost"><i class="fas fa-phone"></i> Nous contacter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><i class="fas fa-glasses"></i> Opti<span class="accent">Vision</span></a>
+        <p>Votre boutique de lunettes premium.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="commander.html">Comment commander</a></li>
+          <li><a href="conseil.html">Conseils</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#">Livraison & retours</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+          <input type="email" placeholder="Votre email" required/>
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 OptiVision. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg"></span></div>
+
+  <script src="data.js"></script>
+  <script src="cart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
