@@ -438,7 +438,7 @@ async function submitOrder(e) {
   //    1. Va sur https://formspree.io et crée un compte gratuit
   //    2. Crée un nouveau formulaire → copie l'endpoint (ex: https://formspree.io/f/xxxxxabc)
   //    3. Colle-le à la place de "https://formspree.io/f/VOTRE_ID_ICI"
-  const FORMSPREE_COMMANDE = 'https://formspree.io/f/VOTRE_ID_ICI';
+  const FORMSPREE_COMMANDE = 'https://formspree.io/f/xlgydqrl';
 
   const payload = {
     '🧾 Numéro de commande': orderNum,
@@ -630,7 +630,7 @@ async function sendContact(e) {
 
   // ⚠️  IMPORTANT : remplace l'URL ci-dessous par ton vrai endpoint Formspree
   //    (tu peux créer un 2ème formulaire séparé sur formspree.io pour les contacts)
-  const FORMSPREE_CONTACT = 'https://formspree.io/f/VOTRE_ID_ICI';
+  const FORMSPREE_CONTACT = 'https://formspree.io/f/xlgydqrl';
 
   const payload = {};
   inputs.forEach(input => {

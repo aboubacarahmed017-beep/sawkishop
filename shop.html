@@ -3,42 +3,33 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop – OptiVision</title>
+  <title>Shop – SAWKISHOP</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-icon"><i class="fas fa-glasses"></i></span>
-        <span class="logo-text">Opti<span class="accent">Vision</span></span>
-      </a>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">SAWKISHOP</a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="shop.html" class="active">Shop</a></li>
-        <li><a href="commander.html">Comment commander</a></li>
-        <li><a href="conseil.html">Conseils</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><span class="nav-num">00</span><a href="index.html">Accueil</a></li>
+        <li><span class="nav-num">01</span><a href="shop.html" class="active">Shop</a></li>
+        <li><span class="nav-num">02</span><a href="conseil.html">Conseils</a></li>
+        <li><span class="nav-num">03</span><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-actions">
-        <a href="panier.html" class="cart-btn"><i class="fas fa-shopping-bag"></i><span class="cart-badge" id="cartBadge2">0</span></a>
+      <div class="nav-right">
+        <a href="panier.html" class="cart-icon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartBadge2">0</span></a>
+        <a href="panier.html" class="btn-outline-nav">Panier →</a>
         <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
-    <div class="page-header-bg">
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
-    </div>
-    <div class="page-header-content">
-      <h1>Notre <span class="gradient-text">Collection</span></h1>
+    <div class="wrap">
+      <p class="section-tag">Notre sélection</p>
+      <h1>La <em>Collection</em></h1>
       <p>Découvrez nos modèles de lunettes premium — livraison à domicile partout</p>
       <div class="breadcrumb">
         <a href="index.html">Accueil</a>
@@ -48,10 +39,8 @@
     </div>
   </div>
 
-  <!-- SHOP SECTION -->
   <section class="shop-section section">
     <div class="container">
-      <!-- FILTERS & SEARCH -->
       <div class="shop-controls">
         <div class="search-bar">
           <i class="fas fa-search"></i>
@@ -67,21 +56,15 @@
         <div class="sort-bar">
           <select id="sortSelect" onchange="filterProducts()">
             <option value="default">Trier par</option>
-            <option value="price-asc">Prix : croissant</option>
-            <option value="price-desc">Prix : décroissant</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
             <option value="name">Nom A–Z</option>
             <option value="promo">Promotions</option>
           </select>
         </div>
       </div>
-
-      <!-- RESULTS COUNT -->
       <p class="results-count" id="resultsCount">Affichage de tous les produits</p>
-
-      <!-- PRODUCTS GRID -->
       <div class="products-grid" id="shopProducts"></div>
-
-      <!-- EMPTY STATE -->
       <div class="empty-state" id="emptyState" style="display:none">
         <i class="fas fa-search"></i>
         <h3>Aucun produit trouvé</h3>
@@ -90,54 +73,26 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-brand">
-        <a href="index.html" class="logo"><i class="fas fa-glasses"></i> Opti<span class="accent">Vision</span></a>
-        <p>Votre boutique de lunettes premium.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <div class="footer-top">
+      <div class="wrap footer-grid">
+        <div class="footer-col footer-brand-col">
+          <a href="index.html" class="footer-logo">SAWKISHOP</a>
+          <p>Votre boutique de lunettes premium.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
         </div>
-      </div>
-      <div class="footer-links">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="conseil.html">Conseils</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Informations</h4>
-        <ul>
-          <li><a href="#">Livraison & retours</a></li>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-newsletter">
-        <h4>Newsletter</h4>
-        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
-          <input type="email" placeholder="Votre email" required/>
-          <button type="submit"><i class="fas fa-paper-plane"></i></button>
-        </form>
+        <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Accueil</a></li><li><a href="shop.html">Shop</a></li><li><a href="conseil.html">Conseils</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Informations</h5><ul><li><a href="#">Livraison & retours</a></li><li><a href="#">Mentions légales</a></li><li><a href="#">FAQ</a></li></ul></div>
+        <div class="footer-col"><h5>Newsletter</h5><form class="nl-form" onsubmit="subscribeNewsletter(event)"><input type="email" placeholder="votre@email.com" required/><button type="submit">→</button></form></div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2025 OptiVision. Tous droits réservés.</p>
-      <div class="payment-icons">
-        <i class="fab fa-cc-visa"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fab fa-cc-paypal"></i>
-      </div>
-    </div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 SAWKISHOP. Tous droits réservés.</span><div class="footer-pay"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i class="fab fa-cc-paypal"></i></div></div></div>
   </footer>
 
-  <!-- MODAL PRODUIT -->
   <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
     <div class="modal-box" id="modalBox">
       <button class="modal-close" onclick="closeModalBtn()"><i class="fas fa-times"></i></button>
@@ -146,9 +101,6 @@
   </div>
 
   <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg"></span></div>
-
-  <script src="data.js"></script>
-  <script src="cart.js"></script>
-  <script src="main.js"></script>
+  <script src="data.js"></script><script src="cart.js"></script><script src="main.js"></script>
 </body>
 </html>

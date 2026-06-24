@@ -3,95 +3,52 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OptiVision — Lunettes Premium</title>
+  <title>SAWKISHOP — Lunettes Premium</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <!-- ANNOUNCEMENT BAR -->
+  <!-- ANNOUNCE BAR -->
   <div class="announce-bar">
-    <span>Livraison gratuite à domicile · Garantie 2 ans · Retours sous 30 jours</span>
+    <span>Livraison gratuite à domicile &nbsp;·&nbsp; Garantie 2 ans &nbsp;·&nbsp; Retours sous 30 jours</span>
   </div>
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
-      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
-      <a href="index.html" class="logo">OptiVision</a>
+      <a href="index.html" class="logo">SAWKISHOP</a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Accueil</a></li>
-        <li><a href="shop.html">Collection</a></li>
-        <li><a href="commander.html">Comment commander</a></li>
-        <li><a href="conseil.html">Conseils</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><span class="nav-num">00</span><a href="index.html" class="active">Accueil</a></li>
+        <li><span class="nav-num">01</span><a href="shop.html">Shop</a></li>
+        <li><span class="nav-num">02</span><a href="conseil.html">Conseils</a></li>
+        <li><span class="nav-num">03</span><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="shop.html" class="nav-icon" title="Rechercher"><i class="fas fa-search"></i></a>
-        <a href="panier.html" class="nav-icon cart-icon" title="Panier">
+        <a href="panier.html" class="cart-icon" title="Panier">
           <i class="fas fa-shopping-bag"></i>
           <span class="cart-count" id="cartBadge2">0</span>
         </a>
+        <a href="shop.html" class="btn-outline-nav">Commander →</a>
+        <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-left">
-      <div class="hero-label">Collection Printemps — Été 2025</div>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Collection Printemps — Été 2025</p>
       <h1 class="hero-title">L'art de<br><em>voir & être vu</em></h1>
       <p class="hero-desc">Des montures sélectionnées pour leur caractère. Livrées directement chez vous depuis notre boutique.</p>
       <div class="hero-actions">
-        <a href="shop.html" class="btn-dark">Explorer la collection</a>
-        <a href="conseil.html" class="btn-text">Guide des formes <span>→</span></a>
+        <a href="shop.html" class="btn-white">Explorer la collection</a>
+        <a href="conseil.html" class="btn-outline-white">Nos conseils →</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-img-wrap">
-        <div class="hero-img-box">
-          <div class="hero-glasses-visual">
-            <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
-              <defs>
-                <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#263238" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#37474f" stop-opacity="1"/>
-                </linearGradient>
-                <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#2196f3" stop-opacity="0.18"/>
-                  <stop offset="100%" stop-color="#90caf9" stop-opacity="0.10"/>
-                </linearGradient>
-                <linearGradient id="g3" x1="0%" y1="0%" x2="50%" y2="100%">
-                  <stop offset="0%" stop-color="#fff" stop-opacity="0.55"/>
-                  <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-                </linearGradient>
-                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#2196f3" flood-opacity="0.25"/>
-                </filter>
-              </defs>
-              <!-- branches -->
-              <path d="M52 120 Q20 120 12 145 L12 210" stroke="#37474f" stroke-width="7" fill="none" stroke-linecap="round"/>
-              <path d="M468 120 Q500 120 508 145 L508 210" stroke="#37474f" stroke-width="7" fill="none" stroke-linecap="round"/>
-              <!-- verres fond -->
-              <ellipse cx="148" cy="122" rx="92" ry="74" fill="url(#g2)" stroke="url(#g1)" stroke-width="9" filter="url(#shadow)"/>
-              <ellipse cx="372" cy="122" rx="92" ry="74" fill="url(#g2)" stroke="url(#g1)" stroke-width="9" filter="url(#shadow)"/>
-              <!-- pont -->
-              <path d="M240 115 Q260 96 280 115" stroke="#37474f" stroke-width="7" fill="none" stroke-linecap="round"/>
-              <!-- reflets -->
-              <ellipse cx="120" cy="96" rx="34" ry="20" fill="url(#g3)" transform="rotate(-18 120 96)" opacity="0.9"/>
-              <ellipse cx="344" cy="96" rx="34" ry="20" fill="url(#g3)" transform="rotate(-18 344 96)" opacity="0.9"/>
-              <!-- screws -->
-              <circle cx="52" cy="120" r="5.5" fill="#37474f"/>
-              <circle cx="468" cy="120" r="5.5" fill="#37474f"/>
-            </svg>
-          </div>
-        </div>
-        <div class="hero-badge-1"><span>200+</span> modèles</div>
-        <div class="hero-badge-2">Livraison<br>à domicile</div>
-      </div>
-    </div>
+    <div class="scroll-indicator">Scroll</div>
   </section>
 
   <!-- STRIP -->
@@ -116,50 +73,30 @@
       </div>
       <div class="cat-row">
         <a href="shop.html?cat=soleil" class="cat-tile">
-          <div class="cat-tile-bg cat-bg-soleil">
-            <i class="fas fa-sun"></i>
-          </div>
-          <div class="cat-tile-label">
-            <span>Soleil</span>
-            <small>UV400 · Polarisé</small>
-          </div>
+          <div class="cat-tile-bg cat-bg-soleil"><i class="fas fa-sun"></i></div>
+          <div class="cat-tile-label"><span>Soleil</span><small>UV400 · Polarisé</small></div>
         </a>
         <a href="shop.html?cat=vue" class="cat-tile">
-          <div class="cat-tile-bg cat-bg-vue">
-            <i class="fas fa-eye"></i>
-          </div>
-          <div class="cat-tile-label">
-            <span>Vue</span>
-            <small>Correction optique</small>
-          </div>
+          <div class="cat-tile-bg cat-bg-vue"><i class="fas fa-eye"></i></div>
+          <div class="cat-tile-label"><span>Vue</span><small>Correction optique</small></div>
         </a>
         <a href="shop.html?cat=sport" class="cat-tile">
-          <div class="cat-tile-bg cat-bg-sport">
-            <i class="fas fa-person-running"></i>
-          </div>
-          <div class="cat-tile-label">
-            <span>Sport</span>
-            <small>Performance</small>
-          </div>
+          <div class="cat-tile-bg cat-bg-sport"><i class="fas fa-person-running"></i></div>
+          <div class="cat-tile-label"><span>Sport</span><small>Performance</small></div>
         </a>
-        <a href="shop.html?cat=luxe" class="cat-tile cat-tile-wide">
-          <div class="cat-tile-bg cat-bg-luxe">
-            <i class="fas fa-gem"></i>
-          </div>
-          <div class="cat-tile-label">
-            <span>Luxe</span>
-            <small>Édition limitée</small>
-          </div>
+        <a href="shop.html?cat=luxe" class="cat-tile">
+          <div class="cat-tile-bg cat-bg-luxe"><i class="fas fa-gem"></i></div>
+          <div class="cat-tile-label"><span>Luxe</span><small>Édition limitée</small></div>
         </a>
       </div>
     </div>
   </section>
 
   <!-- FEATURED PRODUCTS -->
-  <section class="sec-products">
+  <section class="sec-products section" style="background:var(--cream);">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Populaires en ce moment</h2>
+        <h2>Populaires en ce moment.</h2>
         <a href="shop.html" class="see-all">Voir tout →</a>
       </div>
       <div class="products-grid" id="featuredProducts"></div>
@@ -184,14 +121,16 @@
     <div class="split-right">
       <div class="split-right-visual">
         <div class="split-icon-wrap"><i class="fas fa-glasses"></i></div>
-        <div class="split-stat"><strong>200+</strong><span>modèles en boutique</span></div>
-        <div class="split-stat"><strong>4.9/5</strong><span>satisfaction client</span></div>
-        <div class="split-stat"><strong>24h</strong><span>délai de livraison</span></div>
+        <div class="split-stats">
+          <div class="split-stat"><strong>200+</strong><span>modèles en boutique</span></div>
+          <div class="split-stat"><strong>4.9/5</strong><span>satisfaction client</span></div>
+          <div class="split-stat"><strong>24h</strong><span>délai de livraison</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- REVIEWS -->
   <section class="sec-reviews">
     <div class="wrap">
       <div class="sec-head centered">
@@ -231,7 +170,7 @@
     <div class="footer-top">
       <div class="wrap footer-grid">
         <div class="footer-col footer-brand-col">
-          <a href="index.html" class="footer-logo">OptiVision</a>
+          <a href="index.html" class="footer-logo">SAWKISHOP</a>
           <p>Votre boutique de lunettes premium. Qualité, style et livraison à domicile.</p>
           <div class="footer-social">
             <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -243,7 +182,7 @@
           <h5>Navigation</h5>
           <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="shop.html">Collection</a></li>
+            <li><a href="shop.html">Shop</a></li>
             <li><a href="conseil.html">Conseils</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -253,13 +192,12 @@
           <ul>
             <li><a href="#">Livraison & retours</a></li>
             <li><a href="#">Mentions légales</a></li>
-            <li><a href="#">Confidentialité</a></li>
             <li><a href="#">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Newsletter</h5>
-          <p>Nouveautés & offres exclusives.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.8rem;">Nouveautés & offres exclusives.</p>
           <form class="nl-form" onsubmit="subscribeNewsletter(event)">
             <input type="email" placeholder="votre@email.com" required/>
             <button type="submit">→</button>
@@ -269,7 +207,7 @@
     </div>
     <div class="footer-bottom">
       <div class="wrap footer-bottom-inner">
-        <span>© 2025 OptiVision. Tous droits réservés.</span>
+        <span>© 2025 SAWKISHOP. Tous droits réservés.</span>
         <div class="footer-pay">
           <i class="fab fa-cc-visa"></i>
           <i class="fab fa-cc-mastercard"></i>
